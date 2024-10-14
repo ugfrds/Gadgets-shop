@@ -1,0 +1,111 @@
+.c-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .c-product-card {
+    display: flex; /* Use flexbox to arrange image and details side by side */
+    border: none; /* Remove the border */
+  }
+  
+  .c-card-content {
+    display: flex;
+  }
+  
+  .c-image-container {
+    flex: 1; /* Image takes up 1 part */
+  }
+  
+  .c-image {
+    object-fit: cover;
+    height: 100%; /* Ensures the image fills its container */
+  }
+  
+  .c-details-container {
+    flex: 2; /* Details take up 2 parts */
+    padding: 1rem;
+  }
+  
+  .c-product-name {
+    font-size: 1.25rem; /* Adjust font size as needed */
+  }
+  
+  .c-product-price,
+  .c-product-availability {
+    margin: 0.5rem 0;
+  }
+  
+  .c-buy-now-button {
+    margin-top: 1rem; /* Spacing for button */
+  }
+  
+  .c-show-more-button {
+    margin-top: 1rem; /* Spacing for show more button */
+    align-self: flex-end; /* Center the button */
+  }
+  .c-product-card {
+  border: none; /* Remove default card border */
+}
+
+.c-product-name {
+  font-size: 1.25rem; /* Larger font size */
+  font-weight: bold; /* Bold text */
+  color: #333; /* Dark color for emphasis */
+}
+
+.c-product-price {
+  font-size: 1.2rem; /* Slightly larger price */
+  font-weight: bold; /* Bold price */
+  color: #d9534f; /* Highlight price in red */
+}
+
+.c-product-availability {
+  font-weight: bold; /* Bold text */
+}
+
+.in-stock {
+  color: green; /* Green for available */
+}
+
+.out-of-stock {
+  color: red; /* Red for out of stock */
+}
+
+.c-buy-button {
+  background-color: #007bff; /* Blue button */
+  border: none; /* Remove default border */
+  font-weight: bold; /* Bold text */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.c-buy-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.c-show-more-button {
+  margin-top: 10px; /* Margin for spacing */
+}
+
+
+.c-image-container {
+    position: relative;
+  }
+  
+  .c-product-label {
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  .c-brand-new {
+    background-color: green; /* Change to your desired color */
+  }
+  
+  .c-uk-used {
+    background-color: orange; /* Change to your desired color */
+  }
+  

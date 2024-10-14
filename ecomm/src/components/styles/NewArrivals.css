@@ -1,0 +1,15 @@
+/* NewArrivals.css */
+.featured-title {
+    margin-left: 220px; /* Adjust margin for the title */
+    color: #21225F; /* Title color */
+    font-size: 2rem; /* Font size */
+  }
+  
+  @media (max-width: 768px) {
+    .featured-title {
+      font-size: 1.5rem;
+      margin-bottom: 0;
+      
+    }
+  }
+  

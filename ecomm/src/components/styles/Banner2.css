@@ -1,0 +1,93 @@
+/* General styling for the banner */
+.two-column-banner {
+    background-color: #E7DACA; /* Background color */
+    height: 300px; /* Fixed banner height */
+    padding: 20px 15px; /* Padding for content */
+    overflow: hidden; /* Ensure content stays within the banner */
+  }
+  
+  .two-column-banner-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensure columns are spaced well */
+    height: 100%; /* Full height for the row */
+  }
+  
+  .banner-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    padding: 10px;
+  }
+  
+  .first-column {
+    flex: 1; /* First column takes less space */
+  }
+  
+  .second-column {
+    flex: 2; /* Second column takes more space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .small-text {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 8px;
+  }
+  
+  .big-text {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .cta-button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+  
+  .product-image {
+    max-width: 100%;
+    max-height: 100%; /* Ensure image fits within the banner */
+    object-fit: contain; /* Ensure the image scales properly without stretching */
+  }
+  
+  /* Mobile-specific styling */
+  @media (max-width: 768px) {
+    .two-column-banner {
+      height: auto; /* Allow the height to adjust naturally on smaller screens */
+      padding: 15px 10px; /* Adjust padding on mobile */
+    }
+  
+    .two-column-banner-row {
+      flex-wrap: nowrap; /* Keep columns side by side */
+    }
+  
+    .banner-column {
+      padding: 5px;
+    }
+  
+    .small-text {
+      font-size: 12px;
+    }
+  
+    .big-text {
+      font-size: 20px;
+    }
+  
+    .cta-button {
+      font-size: 12px;
+      padding: 6px 12px;
+    }
+  
+    .c-product-image {
+        max-width: 100%; /* Ensures image scales with container width */
+        max-height: 100%; /* Ensures image scales within the container height */
+        object-fit: contain; /* Ensures the image fits without cropping */
+        display: block; /* Ensures the image is a block element */
+    }
+  }
+  

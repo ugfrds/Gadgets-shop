@@ -1,0 +1,74 @@
+.product-card {
+  border: none !important; /* Remove the default border */
+  position: relative; /* For positioning the button */
+  transition: transform 0.2s; /* Smooth hover effect */
+  max-width: 450px;
+  
+}
+
+.product-card:hover {
+  transform: scale(1.05); /* Scale up the card on hover */
+}
+
+.product-price {
+  font-weight: bold; /* Make the price stand out */
+}
+
+.buy-now-button {
+  display: none; /* Hide button by default */
+  margin-top: 10px; /* Space between price and button */
+  opacity: 0;
+}
+
+.product-card:hover .buy-now-button {
+  display: block; /* Show button on hover */
+  opacity:1;
+}
+.star-rating{
+  color:gold;
+}
+
+.filter-star {
+  color:gold;
+}
+.empty-star{
+  color:lightgrey;
+}
+
+.image-container {
+  position: relative; /* Make the container relative for absolute positioning of the label */
+}
+
+.product-image {
+  width: 100%; /* Ensure the image takes the full width */
+  object-fit: contain;
+  
+
+}
+
+.condition-label {
+  position: absolute; /* Position absolutely within the image container */
+  top: 10px; /* Distance from the top */
+  right: 10px; /* Distance from the right */
+  font-weight: bold;
+  font-size: 0.9em; /* Adjust font size */
+  padding: 5px 10px; /* Padding around the text */
+  border-radius: 5px; /* Rounded corners */
+  color: #fff; /* White text for better contrast */
+  text-align: center; /* Center the text */
+}
+
+.condition-label.new {
+  background-color: green; /* Green for Brand New */
+}
+
+.condition-label.used {
+  background-color: orange; /* Orange for UK Used */
+
+}
+
+
+@media(max-width:768px){
+  
+}
+

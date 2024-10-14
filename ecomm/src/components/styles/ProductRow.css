@@ -1,0 +1,118 @@
+.product-row {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 15x;
+  }
+  
+.pagination-controls {
+    display: flex;
+    justify-content: center; /* Center pagination controls */
+    margin: 10px 0; /* Space above and below pagination */
+    flex-wrap: wrap; /* Allow wrapping if needed */
+  }
+  
+  .pagination-controls button {
+    margin: 0 5px; /* Space between buttons */
+    padding: 10px 15px; /* Padding for buttons */
+    border: none; /* Remove default border */
+    background-color: #007bff; /* Button background color */
+    color: white; /* Button text color */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Transition effect */
+  }
+  
+  .pagination-controls button:hover {
+    background-color: #0056b3; /* Darker color on hover */
+  }
+  
+  .pagination-controls span {
+    align-self: center; /* Center the pagination text */
+    margin: 0 10px; /* Margin around the text */
+  }
+
+  .pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  button {
+    padding: 10px;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+ 
+  @keyframes slide-in {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  .slide-in {
+    animation: slide-in 0.3s forwards; /* Animation applied when sliding in */
+  }
+  
+
+
+  .product-row-container {
+    position: relative; /* Necessary to position controls */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .product-row {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .pagination-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none; /* Prevent controls from blocking product clicks */
+  }
+  
+  .pagination-controls button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    pointer-events: all; /* Re-enable pointer events for buttons */
+    border-radius: 50%;
+  }
+  
+  .pagination-controls button:disabled {
+    background-color: rgba(0, 0, 0, 0.2);
+    cursor: not-allowed;
+  }
+  
+  .pagination-controls span {
+    pointer-events: none; /* Prevent span from blocking other elements */
+    color: white;
+    font-weight: bold;
+    margin: 0 15px;
+  }
+  
+
+
+  

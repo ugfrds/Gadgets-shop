@@ -1,0 +1,67 @@
+.banner {
+    background-color: #001f3f;
+    color: white;
+    padding: 30px 0;
+  }
+  
+  .banner-row {
+    display: flex;
+    flex-wrap: nowrap !important; /* Prevent columns from wrapping on larger screens */
+  }
+  
+  .banner-icon {
+    color: white;
+    margin-right: 10px; /* Adjusted margin for smaller screens */
+    font-size: 24px; /* Default icon size */
+  }
+  
+  .banner-column {
+    display: flex !important;
+    align-items: center;
+    flex: 0 0 auto;
+    padding: 10px; /* Padding around columns */
+  }
+  
+  .banner-heading {
+    font-weight: 400;
+    text-align: start;
+    font-size: 1.2rem; /* Default heading size */
+  }
+  
+  .banner-subheading {
+    margin: 0;
+    text-align: start;
+    font-size: 0.9rem; /* Default subheading size */
+  }
+  
+  /* Media Query for small screens */
+  @media (max-width: 768px) {
+    .banner {
+      overflow-x: auto; /* Enable horizontal scrolling on mobile */
+      white-space: nowrap !important; /* Prevent columns from wrapping */
+    }
+    .banner-row {
+        width:70% !important;
+    }
+    .banner-column {
+      display: inline-flex; /* Allow columns to be inline and scrollable */
+      min-width: 200px; /* Reduced minimum width for columns */
+      padding: 5px; /* Reduced padding between columns */
+      
+      
+    }
+  
+    .banner-icon {
+      font-size: 16px; /* Smaller icon size on mobile */
+      margin-right: 5px; /* Smaller margin between icon and text */
+    }
+  
+    .banner-heading {
+      font-size: 1rem; /* Smaller heading size on mobile */
+    }
+  
+    .banner-subheading {
+      font-size: 0.8rem; /* Smaller subheading size on mobile */
+    }
+  }
+  
