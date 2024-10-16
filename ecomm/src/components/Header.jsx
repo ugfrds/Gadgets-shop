@@ -52,7 +52,7 @@ const Header = () => {
 
   return (
     <Navbar bg="dark" variant="dark" expand="lg" className="header-navbar sticky-top full-width p-4">
-      <Navbar.Brand href="/" className="header-logo ms-3">
+      <Navbar.Brand href="/Gadgets-shop" className="header-logo ms-3">
         iGadgets
       </Navbar.Brand>
 

@@ -52,6 +52,10 @@
   border-bottom-right-radius: 0.5rem !important;
 }
 
+.search-icon:hover{
+  background-color: #FF9900 !important;
+}
+
 
 /* Account and Cart Options */
 .header-right-nav {

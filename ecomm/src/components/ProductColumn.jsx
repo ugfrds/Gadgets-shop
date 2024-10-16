@@ -22,7 +22,7 @@ const ProductColumn = ({ products }) => {
               </span>
             </div>
             <div className="c-details-container">
-              <Card.Body>
+              <Card.Body> 
                 <Card.Title className="c-product-name">{product.name}</Card.Title>
                 <Card.Text className="c-product-price">
                   {product.priceRange ? `$${product.priceRange}` : product.price ? `$${product.price}` : ''}
@@ -30,7 +30,7 @@ const ProductColumn = ({ products }) => {
                 <Card.Text className={`c-product-availability ${product.availability? 'in-stock': 'out-of-stock'}`}>
                   {product.availability ? 'In Stock' : 'Out of Stock'}
                 </Card.Text>
-                <Button variant="primary" className="c-buy-now-button">Buy Now</Button>
+                <Button href={`/Gadgets-shop/product/${product.id}`} variant="primary" className="c-buy-now-button">Buy Now</Button>
               </Card.Body>
             </div>
           </div>

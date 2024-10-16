@@ -48,7 +48,7 @@ const ProductCard = ({ product, addToCompare, showCompareButton = false }) => { 
               : ''}
         </Card.Text>
         
-        <Button href={`/product/${product.id}`} variant="primary" className="buy-now-button">
+        <Button href={`/Gadgets-shop/product/${product.id}`} variant="primary" className="buy-now-button">
           Buy Now
         </Button>
 
