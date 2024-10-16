@@ -48,9 +48,9 @@ const ProductCard = ({ product, addToCompare, showCompareButton = false }) => { 
               : ''}
         </Card.Text>
         
-        <Button href={`/Gadgets-shop/product/${product.id}`} variant="primary" className="buy-now-button">
-          Buy Now
-        </Button>
+        <Button as={Link} to={`/product/${product.id}`} variant="primary" className="buy-now-button">
+                 Buy Now
+            </Button>
 
         {/* Conditionally render the Compare button */}
         {showCompareButton && (
