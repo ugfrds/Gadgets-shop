@@ -355,29 +355,10 @@ const Shop = () => {
       </Row>
 
       <div className="other-products">
-        {/*<ProductColumn products={products} />*/}
+        <h2> Other Products</h2>
+        <ProductColumn products={products} />
       </div>
-      {/* use state practice */}
-
-      <div>
-        <Row  className='feature'>
-          <Col >
-             <h3>Accessories </h3>
-             <Button>Shop Now</Button>
-          </Col>
-          <Col>
-             <img src="../assets/pic.jpg" alt="arm band" className='test-image' /> 
-          </Col>
-        </Row>
-      </div>
-      <p>
-      my fav color is {color}
-      </p>
-      <button onClick= {changeColor}>Red</button>
-
-
-
-
+    
 
     </div>
   );
