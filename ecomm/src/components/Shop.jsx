@@ -19,16 +19,6 @@ const Shop = () => {
   const { selectedVariation, setSelectedVariation } = useVariation(); 
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
 
-
- const [color , setColor] = useState('Blue');
-
-
- const changeColor = () =>{
-  setColor ('Red');
-  console.log(color);
- }
-
-
   const filteredByCategory = products.filter((product) => {
     return product.category && product.category.toLowerCase() === category.toLowerCase();
   });

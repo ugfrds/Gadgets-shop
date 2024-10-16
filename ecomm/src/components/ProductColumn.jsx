@@ -31,7 +31,7 @@ const ProductColumn = ({ products }) => {
                 <Card.Text className={`c-product-availability ${product.availability? 'in-stock': 'out-of-stock'}`}>
                   {product.availability ? 'In Stock' : 'Out of Stock'}
                 </Card.Text>
-                <Button as={Link} to={`/Gadgets-shop/product/${product.id}`} variant="primary" className="buy-now-button">
+                  <Button as={Link} to={`/product/${product.id}`} variant="primary">
                        Buy Now
                   </Button>
               </Card.Body>
