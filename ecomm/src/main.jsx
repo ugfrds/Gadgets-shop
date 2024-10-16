@@ -9,7 +9,7 @@ import { VariationProvider } from './context/VariationContext';
 
 createRoot(document.getElementById('root')).render(
   <VariationProvider>
-  <BrowserRouter>
+  <BrowserRouter basename="/Gadgets-shop">
   <StrictMode>
     <App />
   </StrictMode>
