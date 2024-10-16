@@ -16,6 +16,7 @@
 
 .buy-now-button {
   display: none; /* Hide button by default */
+  margin-top: 10px;
   margin-top: 10px; /* Space between price and button */
   opacity: 0;
 }

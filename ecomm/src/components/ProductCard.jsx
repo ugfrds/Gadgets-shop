@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom';
 import { useVariation } from '../context/VariationContext'; 
 import './styles/ProductCard.css';
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, addToCompare, showCompareButton = false }) => { // Add props for compare functionality
   const { selectedVariation } = useVariation();
   const { variations } = product;
+  
 
   // Find the price of the selected variation
   const variationPrice = selectedVariation
@@ -50,6 +51,17 @@ const ProductCard = ({ product }) => {
         <Button href={`/product/${product.id}`} variant="primary" className="buy-now-button">
           Buy Now
         </Button>
+
+        {/* Conditionally render the Compare button */}
+        {showCompareButton && (
+          <Button 
+            variant="outline-secondary" 
+            onClick={() => addToCompare(product)}
+            className="compare-button"
+          >
+            Compare
+          </Button>
+        )}
       </Card.Body>
     </Card>
   );

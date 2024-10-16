@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import products from './products';
 import './styles/PopularProducts.css';
 import { Carousel , Container } from 'react-bootstrap';
@@ -17,7 +17,20 @@ const PopularProducts = () => {
   );
  
   // Group products by items per slide
-  const itemsPerPage = window.innerWidth < 768 ? 2 : 4; // 2 for small screens, 4 for large
+  const [itemsPerPage, setItemsPerPage] = useState(window.innerWidth < 768 ? 2 : 4); // Initial value based on screen size
+
+  // Update itemsPerPage on window resize
+  useEffect(() => {
+    const handleResize = () => {
+      setItemsPerPage(window.innerWidth < 768 ? 2 : 4);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   const groupedProducts = [];
   
   for (let i = 0; i < filteredProducts.length; i += itemsPerPage) {

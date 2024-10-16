@@ -8,8 +8,11 @@ const Banner = () => {
     <Container fluid className="banner">
       <Row className="banner-row text-center row" >
         {/* Column 1: Free Delivery */}
-        <Col md={3} className="banner-column">
-          <FaTruck size={40} className="banner-icon" />
+        <Col md={3} className="banner-column d-flex">
+        <div>
+        <FaTruck size={40} className="banner-icon" />
+        </div>
+          
           <div>
             <h5 className="banner-heading">Fast & Free Delivery</h5>
             <p className="banner-subheading">
