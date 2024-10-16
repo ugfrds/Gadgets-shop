@@ -62,6 +62,30 @@
     width: 250px;
 
   }
+
+  
+  .small-title {
+    font-size: 0.8rem; /* Adjust font size */
+  }
+
+  .big-heading {
+    font-size: 1.2rem; /* Adjust font size */
+  }
+
+  .subheading {
+    font-size: 1rem; /* Adjust font size */
+  }
+
+  .price {
+    font-size: 1.2rem; /* Adjust font size */
+  }
+
+  .cta-btn {
+    padding: 0.5rem 0.8rem; /* Further reduced padding */
+    font-size: 0.9rem; /* Further reduced font size */
+  }
+
+}
   
   @keyframes slideInTop {
     0% {

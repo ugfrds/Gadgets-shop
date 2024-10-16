@@ -70,6 +70,9 @@ const ProductDetail = () => {
   
 
   // Calculate total price based on selected variation and quantity
+  const incrementQuantity = () => setQuantity(quantity + 1);
+  const decrementQuantity = () => setQuantity(quantity > 1 ? quantity - 1 : 1);
+
   const totalPrice = selectedVariation.price * quantity;
 
   return (
@@ -177,29 +180,31 @@ const ProductDetail = () => {
         </div>
       
 
-       <div className="col-md-2 sidebar">
+        <div className="col-md-2 sidebar">
           <h2 className="price">${totalPrice.toFixed(2)}</h2>
-          {/* Quantity Control */}
           <div className="quantity-control">
-            <label htmlFor="quantity">Quantity:</label>
-            <input
-              type="number"
-              id="quantity"
-              className="quantity-input"
-              value={quantity}
-              min="1"
-              onChange={(e) => setQuantity(Math.max(1, e.target.value))}
-            />
+            <label>Quantity:</label>
+            <div className="quantity-buttons">
+              <Button variant="outline-secondary" onClick={decrementQuantity}>-</Button>
+              <input
+                type="number"
+                value={quantity}
+                className="quantity-input"
+                min="1"
+                onChange={(e) => setQuantity(Math.max(1, Number(e.target.value)))}
+              />
+              <Button variant="outline-secondary" onClick={incrementQuantity}>+</Button>
+            </div>
           </div>
-           {/* Add to Cart and Buy Now Buttons */}
-            <Button className="c-btn btn-primary">Add to Cart</Button>
-            <Button className="c-btn btn-success">Buy Now</Button>
-            {/* Compare Button */}
-            <Button variant="outline-secondary" onClick={() => addToCompare(product)}>
+
+          <Button className="c-btn btn-primary">Add to Cart</Button>
+          <Button className="c-btn btn-success">Buy Now</Button>
+          <Button variant="outline-secondary" onClick={() => addToCompare(product)}>
             Click to Compare
-            </Button>
-          </div>
-       </div>
+          </Button>
+        </div>
+      
+      </div>
       </div>
 
       
@@ -317,22 +322,14 @@ const ProductDetail = () => {
 </div>
 
 
-      {/* Floating Action Button */}
-      <Button
-        variant="primary"
-        className="fab-compare"
-        onClick={handleShowModal}
-        style={{
-          position: 'fixed',
-          bottom: '20px',
-          right: '20px',
-          borderRadius: '50%',
-          padding: '15px',
-          fontSize: '18px',
-        }}
-      >
-        Compare Products
-      </Button>
+    {/* Floating Action Button */}
+<Button
+  variant="primary"
+  className="fab-compare"
+  onClick={handleShowModal}
+>
+  Compare Products
+</Button>
 
       {/* Compare Modal */}
     {/* Compare Modal */}

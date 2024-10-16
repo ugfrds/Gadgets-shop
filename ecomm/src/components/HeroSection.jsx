@@ -1,5 +1,5 @@
 import React from 'react';
-import { Carousel } from 'react-bootstrap';
+import { Carousel,Button} from 'react-bootstrap';
 
 import './styles/HeroSection.css';
 import MockupImage from '../assets/pic.jpg';
@@ -45,7 +45,8 @@ const HeroSection = () => {
               <p className="subheading">
                 Starting at: <span className="price animate-price">{item.price}</span>
               </p>
-              <button className="cta-btn">Shop Now</button>
+              <Button className="cta-btn"  >
+              Shop Now</Button>
             </div>
           </div>
         </Carousel.Item>
