@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import products from '../components/products'; 
 import './styles/ProductPage.css'; 
 import ProductRow from '../components/ProductRow'; 
+import CompareButton from'../components/CompareButton';
 
 
 const ProductDetail = () => {
@@ -28,11 +29,23 @@ const ProductDetail = () => {
     if (!productExists) {
       // Add product to the compare list if not already there
       setCompareList([...compareList, product]);
-      alert('Product Added to comparison list'); // Show alert
+      
     } else {
       alert("Product already in the compare list");
     }
   };
+
+  const removeFromCompare = (product) => {
+    // Filter out the product from the compare list using its id
+    const updatedCompareList = compareList.filter(
+      (item) => item.id !== product.id
+    );
+  
+    // Update the state with the filtered list
+    setCompareList(updatedCompareList);
+  
+  };
+  
 
   // Show/hide the compare modal
   const handleShowModal = () =>
@@ -44,7 +57,7 @@ const ProductDetail = () => {
   
   
   const handleCloseModal = () => {
-    setCompareList([]);
+    //setCompareList([]);
     setShowModal(false);
   }
 
@@ -199,9 +212,7 @@ const ProductDetail = () => {
 
           <Button className="c-btn btn-primary">Add to Cart</Button>
           <Button className="c-btn btn-success">Buy Now</Button>
-          <Button variant="outline-secondary" onClick={() => addToCompare(product)}>
-            Click to Compare
-          </Button>
+          <CompareButton  product ={product} addToCompare={addToCompare}  removeFromCompare={ removeFromCompare}/>
         </div>
       
       </div>
@@ -275,9 +286,7 @@ const ProductDetail = () => {
             </div>
 
             {/* Compare Button */}
-            <Button variant="outline-primary" onClick={() => addToCompare(product)}>
-              Compare
-            </Button>
+            <CompareButton  product ={product} addToCompare={addToCompare}  removeFromCompare={ removeFromCompare}/>
           </div>
         </Tab>
 
@@ -295,19 +304,12 @@ const ProductDetail = () => {
           </Accordion>
 
           {/* Compare Button */}
-          <Button variant="outline-primary" onClick={() => addToCompare(product)}>
-            Compare
-          </Button>
+          <CompareButton  product ={product} addToCompare={addToCompare}  removeFromCompare={ removeFromCompare}/>
         </Tab>
 
         {/* Shipping & Return Tab */}
         <Tab eventKey="shipping-return" title="Shipping & Return">
           <p>{product.returnPolicy}</p>
-
-          {/* Compare Button */}
-          <Button variant="outline-primary" onClick={() => addToCompare(product)}>
-            Compare
-          </Button>
         </Tab>
       </Tabs>
 
@@ -316,20 +318,27 @@ const ProductDetail = () => {
   <h3>Related Products</h3>
   <ProductRow 
     products={relatedProducts} 
-    addToCompare={addToCompare} 
+    addToCompare={addToCompare}
+    removeFromCompare={ removeFromCompare} 
     showCompareButton={true} // Pass true to show the Compare button
   />
 </div>
 
 
-    {/* Floating Action Button */}
+ {/* Floating Action Button */}
 <Button
   variant="primary"
   className="fab-compare"
   onClick={handleShowModal}
 >
   Compare Products
+  {compareList.length > 0 && (
+    <span className="compare-count">
+      ({compareList.length})
+    </span>
+  )}
 </Button>
+
 
       {/* Compare Modal */}
     {/* Compare Modal */}

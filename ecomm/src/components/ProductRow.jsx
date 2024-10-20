@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ProductCard from './ProductCard'; // Import the ProductCard component
 import './styles/ProductRow.css';
 
-const ProductRow = ({ products, addToCompare, showCompareButton }) => {
+const ProductRow = ({ products, addToCompare, showCompareButton, removeFromCompare }) => {
   // State to manage pagination
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(window.innerWidth < 768 ? 2 : 4); // Initial value based on screen size
@@ -61,6 +61,7 @@ const ProductRow = ({ products, addToCompare, showCompareButton }) => {
             product={product} 
             showCompareButton={showCompareButton} // Pass the prop to ProductCard
             addToCompare={addToCompare} // Pass the addToCompare function if the button is shown
+            removeFromCompare ={ removeFromCompare}
           />
         ))}
       </div>

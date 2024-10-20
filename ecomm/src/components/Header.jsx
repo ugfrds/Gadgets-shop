@@ -8,7 +8,22 @@ import products from './products'; // Import products from the external file
 const Header = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [suggestions, setSuggestions] = useState([]);
+  const [hoveredCategory, setHoveredCategory] = useState(null);
   const navigate = useNavigate();
+
+  // Extract unique categories from products
+  const categories = Array.from(new Set(products.map(product => product.category)));
+
+  // Extract brands per category
+  const getBrandsByCategory = (category) => {
+    return Array.from(
+      new Set(
+        products
+          .filter(product => product.category === category)
+          .map(product => product.brand)
+      )
+    );
+  };
 
   // Handle search input change
   const handleSearch = (e) => {
@@ -28,8 +43,7 @@ const Header = () => {
 
   // Handle selecting a product from suggestions
   const handleSelectProduct = (product) => {
-    
-    navigate(`/product/${product.id}`); 
+    navigate(`/product/${product.id}`);
     setSearchTerm('');
     setSuggestions([]);
   };
@@ -38,17 +52,27 @@ const Header = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (suggestions.length > 0) {
-      navigate(`/product/${suggestions[0].id}`); // Navigate to first suggestion if exists
+      navigate(`/product/${suggestions[0].id}`);
     } else {
-      alert('No matching product found'); // You can handle this however you like
+      alert('No matching product found');
     }
     setSearchTerm('');
     setSuggestions([]);
   };
-    // Handle category selection
-    const handleCategorySelect = (categoryPath) => {
-      navigate(`/shop/${categoryPath}`); // Navigate to shop by category page
-    };
+
+  // Handle category selection
+  const handleCategorySelect = (categoryPath) => {
+    navigate(`/shop/${categoryPath}`);
+  };
+
+  // Handle hover to show brands
+  const handleCategoryHover = (category) => {
+    setHoveredCategory(category);
+  };
+
+  const handleCategoryLeave = () => {
+    setHoveredCategory(null);
+  };
 
   return (
     <Navbar bg="dark" variant="dark" expand="lg" className="header-navbar sticky-top full-width p-4">
@@ -58,28 +82,18 @@ const Header = () => {
 
       {/* Search Bar with Dropdown */}
       <Form className="d-flex header-search-bar" onSubmit={handleSubmit}>
-       <NavDropdown title="All" id="categories-dropdown" className="search-category-dropdown">
-          {/* Replace href with onClick for navigation */}
-          <NavDropdown.Item onClick={() => handleCategorySelect('Smartphone')}>
-            Mobile Phones
-          </NavDropdown.Item>
-          <NavDropdown.Item onClick={() => handleCategorySelect('tablets')}>
-            Tablets
-          </NavDropdown.Item>
-          <NavDropdown.Item onClick={() => handleCategorySelect('Accessories')}>
-            Accessories
-          </NavDropdown.Item>
-          <NavDropdown.Item onClick={() => handleCategorySelect('Laptop')}>
-            Laptops
-          </NavDropdown.Item>
-          <NavDropdown.Item onClick={() => handleCategorySelect('TV')}>
-            TVs
-          </NavDropdown.Item>
-          <NavDropdown.Item onClick={() => handleCategorySelect('Headphones')}>
-            Headphones
-          </NavDropdown.Item>
+        <NavDropdown title="Categories" id="categories-dropdown" className="search-category-dropdown">
+          {categories.map((category) => (
+            <NavDropdown.Item
+              key={category}
+              onMouseEnter={() => handleCategoryHover(category)}
+              onMouseLeave={handleCategoryLeave}
+              onClick={() => handleCategorySelect(category)}
+            >
+              {category}
+            </NavDropdown.Item>
+          ))}
         </NavDropdown>
-
 
         <FormControl
           type="search"
@@ -95,6 +109,26 @@ const Header = () => {
         </Button>
       </Form>
 
+      {/* Brands Dropdown on Hover */}
+      {hoveredCategory && (
+        <NavDropdown
+          title={`${hoveredCategory} Brands`}
+          show={!!hoveredCategory}
+          onMouseEnter={() => handleCategoryHover(hoveredCategory)}
+          onMouseLeave={handleCategoryLeave}
+          className="brands-dropdown"
+        >
+          {getBrandsByCategory(hoveredCategory).map((brand) => (
+            <NavDropdown.Item
+              key={brand}
+              onClick={() => navigate(`/shop/${hoveredCategory}/${brand}`)}
+            >
+              {brand}
+            </NavDropdown.Item>
+          ))}
+        </NavDropdown>
+      )}
+
       {/* Suggestions Dropdown */}
       {searchTerm.length > 1 && (
         <ListGroup className="search-suggestions-dropdown">
@@ -109,7 +143,7 @@ const Header = () => {
               </ListGroup.Item>
             ))
           ) : (
-            <ListGroup.Item>No results found</ListGroup.Item> 
+            <ListGroup.Item>No results found</ListGroup.Item>
           )}
         </ListGroup>
       )}

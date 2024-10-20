@@ -2,9 +2,10 @@ import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useVariation } from '../context/VariationContext'; 
+import CompareButton from './CompareButton';
 import './styles/ProductCard.css';
 
-const ProductCard = ({ product, addToCompare, showCompareButton = false }) => { // Add props for compare functionality
+const ProductCard = ({  removeFromCompare,product, addToCompare, showCompareButton = false }) => { // Add props for compare functionality
   const { selectedVariation } = useVariation();
   const { variations } = product;
   
@@ -54,13 +55,10 @@ const ProductCard = ({ product, addToCompare, showCompareButton = false }) => { 
 
         {/* Conditionally render the Compare button */}
         {showCompareButton && (
-          <Button 
-            variant="outline-secondary" 
-            onClick={() => addToCompare(product)}
-            className="compare-button"
-          >
-            Compare
-          </Button>
+          <>
+          <CompareButton  product ={product} addToCompare={addToCompare}  removeFromCompare={ removeFromCompare}/>
+        
+          </>
         )}
       </Card.Body>
     </Card>
